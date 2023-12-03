@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Comparisearch</title>
+        <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="icon" type="image/x-icon" href="path/to/favicon/ico"
+    </head>
+    <body>
+        
+        <button id="homeButton">Home</button>
+        
+        <div class="search-container">
+            <form id="searchForm">
+                <input autocomplete="off" autofocus required type="text" id="searchInput" placeholder="Type something">
+                <button id="searchButton" type="submit">WHOGONCHECKME?</button>
+            </form>
+        </div>
+
+    <!-- Google search -- Results only-->
+    
+        <script async id="gcse-script" src="https://cse.google.com/cse.js?cx=31cec915ea9304c6f">
+        </script>
+        <div class="gcse-searchresults-only" id="googleResults">
+        </div>
+    
+
+    <!-- Bing search -->
+    <!--
+        <iframe id="bingResults" src=""></iframe>
+    -->
+    
+    
+        <div id="bingResults"></div> 
+    
+        
+        <script src="script.js"></script>
+        
+    </body>
+</html>
+

@@ -1,0 +1,29 @@
+/* Add your styling here */
+
+.search-container {
+    text-align: center;
+    padding: 20px;
+}
+
+
+/*
+#searchForm {
+    border-color: blue;
+    border-style: dashed;
+}
+*/
+
+#searchInput {
+    border-color: blue;
+}
+
+#searchButton{
+    color: blue;
+}
+
+#googleResults, #bingResults {
+    width: 50%; /* Each takes half the width */
+    float: left; /* Align side-by-side */
+    height: 100vh; /* Example height */
+    overflow: auto; /* Enable scroll if content is long */
+}
