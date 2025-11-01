@@ -88,6 +88,7 @@ body {
 
 #searchInput {
     width: 500px;
+    max-width: 80vw;
     height: 50px;
     font-size: 20px;
     border: 2px solid #007bff;
@@ -121,4 +122,41 @@ body {
     overflow: auto;
     box-sizing: border-box;
     padding-top: 100px; /* room so results do not hide behind bar */
+}
+
+@media (max-width: 700px) {
+
+    /* search bar pinned at top after search should still be centered */
+    .search-container.moved {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    /* Show results one under the other instead of side by side */
+    #googleResults,
+    #bingResults {
+        width: 100%;
+        float: none;
+        height: auto;
+        min-height: 60vh;
+        padding-top: 80px;
+    }
+
+    /* Home button: make it bigger for touch targets */
+    .home-button {
+        padding: 12px 18px;
+        font-size: 16px;
+        border-radius: 24px;
+        top: 10px;
+        left: 10px;
+    }
+
+    /* Make intro text wrap nicely */
+    .intro-text {
+        font-size: 0.95rem;
+        line-height: 1.4;
+        max-width: 90vw;
+        padding: 10px 14px;
+    }
 }
