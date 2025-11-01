@@ -41,6 +41,8 @@ document.addEventListener('keydown', function(event) {
             Object.keys(elements).forEach(function(key) {
                 elements[key].execute(searchTerm);
             });
+            // Move search box to top after searching
+document.querySelector('.search-container').classList.add('moved');
         } else {
             console.log('GCSE elements not found again.');
         }
