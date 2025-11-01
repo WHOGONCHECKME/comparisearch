@@ -24,6 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('searchForm').addEventListener('submit', function(e) {
         e.preventDefault();
+        const introText = document.getElementById('introText');
+        if (introText) {
+            introText.style.display = 'none';
+        }
 
         // hide intro and move search bar to top
         const topBar = document.querySelector('.top-bar');
@@ -78,6 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
         if (topBar) {
             topBar.classList.remove('hidden');
         }
+        const introText = document.getElementById('introText');
+        if (introText) {
+            introText.style.display = '';
+        }
 
         // move search bar back to centre
         const searchContainer = document.querySelector('.search-container');
@@ -113,6 +121,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (bingResultsBox) {
             bingResultsBox.style.display = 'none';
         }
-        
+
     });
 });
