@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     var gcseReady = false;
 
@@ -16,17 +15,27 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 100); // check every 100ms
 
-document.addEventListener('keydown', function(event) {
-    if (event.key === '/') {
-        event.preventDefault(); // Prevents the default action of the '/' key
-        document.getElementById('searchInput').focus(); // Focus on the search box
-    }
-})
-
+    document.addEventListener('keydown', function(event) {
+        if (event.key === '/') {
+            event.preventDefault(); // Prevents the default action of the '/' key
+            document.getElementById('searchInput').focus(); // Focus on the search box
+        }
+    });
 
     document.getElementById('searchForm').addEventListener('submit', function(e) {
         e.preventDefault();
-        
+
+        // hide intro and move search bar to top
+        const topBar = document.querySelector('.top-bar');
+        if (topBar) {
+            topBar.classList.add('hidden');
+        }
+
+        const searchContainer = document.querySelector('.search-container');
+        if (searchContainer) {
+            searchContainer.classList.add('moved');
+        }
+
         if (!gcseReady) {
             console.log('GCSE script is not ready yet. Please wait.');
             return;
@@ -41,40 +50,48 @@ document.addEventListener('keydown', function(event) {
             Object.keys(elements).forEach(function(key) {
                 elements[key].execute(searchTerm);
             });
-            // Move search box to top after searching
-document.querySelector('.search-container').classList.add('moved');
         } else {
             console.log('GCSE elements not found again.');
         }
 
         // Making a variable of the Bing url. Bing website + search Term variable
-        const bingSearch = 'https://www.bing.com/search?q=' + searchTerm;
+        const bingSearch = 'https://www.bing.com/search?q=' + encodeURIComponent(searchTerm);
                       
         document.getElementById('bingResults').innerHTML = 
         `<iframe src="${bingSearch}" style="width: 100%; height: 80vh;"></iframe>`;
-
     });
 
-    // Home button, not working for removing bing results
+    // Home button
     document.getElementById('homeButton').addEventListener('click', function() {
-        // Clear Google Search Results
+        // show intro bar again
+        const topBar = document.querySelector('.top-bar');
+        if (topBar) {
+            topBar.classList.remove('hidden');
+        }
+
+        // move search bar back to centre
+        const searchContainer = document.querySelector('.search-container');
+        if (searchContainer) {
+            searchContainer.classList.remove('moved');
+        }
+
+        // clear search box
+        const input = document.getElementById('searchInput');
+        if (input) {
+            input.value = '';
+            input.focus();
+        }
+
+        // clear Google Search Results
         var googleResults = document.getElementById('googleResults');
         if (googleResults) {
             googleResults.innerHTML = '';
         }
     
-        // Completely remove the Bing iframe and recreate it
-        var bingContainer = document.getElementById('bingContainer'); // Ensure this is the parent of the iframe
-        var oldIframe = document.getElementById('bingResults');
-        if (bingContainer && oldIframe) {
-            bingContainer.removeChild(oldIframe);
-            var newIframe = document.createElement('iframe');
-            newIframe.id = 'bingResults';
-            bingContainer.appendChild(newIframe);
+        // clear Bing results
+        var bingResults = document.getElementById('bingResults');
+        if (bingResults) {
+            bingResults.innerHTML = '';
         }
     });
 });
-
-
-
-
