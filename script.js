@@ -99,28 +99,11 @@ document.addEventListener('DOMContentLoaded', function() {
             input.value = '';
             input.focus();
         }
-
-        // clear Google Search Results
-        var googleResults = document.getElementById('googleResults');
-        if (googleResults) {
-            googleResults.innerHTML = '';
-        }
     
         // clear Bing results
         var bingResults = document.getElementById('bingResults');
         if (bingResults) {
             bingResults.innerHTML = '';
         }
-
-        // hide result columns again on Home/reset
-        var googleResultsBox = document.getElementById('googleResults');
-        var bingResultsBox = document.getElementById('bingResults');
-        if (googleResultsBox) {
-            googleResultsBox.style.display = 'none';
-        }
-        if (bingResultsBox) {
-            bingResultsBox.style.display = 'none';
-        }
-
     });
 });
