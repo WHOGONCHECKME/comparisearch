@@ -115,7 +115,6 @@ body {
 /* Results layout */
 #googleResults,
 #bingResults {
-    display: none;          /* hidden until first search */
     width: 50%;
     float: left;
     height: 90vh;
