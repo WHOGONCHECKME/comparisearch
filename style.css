@@ -6,16 +6,16 @@ body {
 }
 
 /* Intro text and Home button container */
-.top-bar {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    text-align: center;
+.intro-text {
+    font-size: 1rem;
+    line-height: 1.4;
+    color: #1a1a1a;
+    background: #eef4ff;            /* soft blue */
+    border: 1px solid #cdd9ff;      /* subtle outline */
+    padding: 10px 16px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    max-width: 90%;
 }
 
 /* Hide top bar after first search */
@@ -104,6 +104,7 @@ body {
 /* Results layout */
 #googleResults,
 #bingResults {
+    display: none;          /* hidden until first search */
     width: 50%;
     float: left;
     height: 90vh;

@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
             searchContainer.classList.add('moved');
         }
 
+                // show results columns now that a search has been run
+        var googleResultsBox = document.getElementById('googleResults');
+        var bingResultsBox = document.getElementById('bingResults');
+        if (googleResultsBox) {
+            googleResultsBox.style.display = 'block';
+        }
+        if (bingResultsBox) {
+            bingResultsBox.style.display = 'block';
+        }
+
         if (!gcseReady) {
             console.log('GCSE script is not ready yet. Please wait.');
             return;
@@ -93,5 +103,16 @@ document.addEventListener('DOMContentLoaded', function() {
         if (bingResults) {
             bingResults.innerHTML = '';
         }
+
+        // hide result columns again on Home/reset
+        var googleResultsBox = document.getElementById('googleResults');
+        var bingResultsBox = document.getElementById('bingResults');
+        if (googleResultsBox) {
+            googleResultsBox.style.display = 'none';
+        }
+        if (bingResultsBox) {
+            bingResultsBox.style.display = 'none';
+        }
+        
     });
 });
